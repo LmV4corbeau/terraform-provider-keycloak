@@ -340,7 +340,7 @@ func testAccCheckKeycloakUserFetch(resourceName string, user *keycloak.User) res
 func testAccCheckKeycloakUserInitialPasswordLogin(username, password, clientId string) resource.TestCheckFunc {
 	return func(s *terraform.State) error {
 		httpClient := &http.Client{}
-
+        // keycloak 18 don't use /auth anymore
 		resourceUrl := fmt.Sprintf("%s/auth/realms/%s/protocol/openid-connect/token", os.Getenv("KEYCLOAK_URL"), testAccRealm.Realm)
 
 		form := url.Values{}

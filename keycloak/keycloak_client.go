@@ -334,6 +334,7 @@ func (keycloakClient *KeycloakClient) sendRequest(ctx context.Context, request *
 		"status": response.Status,
 	}
 
+    // keycloak 18 don't use /auth anymore
 	if len(responseBody) != 0 && request.URL.Path != "/auth/admin/serverinfo" {
 		responseLogArgs["body"] = string(responseBody)
 	}

@@ -16,6 +16,7 @@ accessToken=$(
         -d "grant_type=password" \
         "${KEYCLOAK_URL}/auth/realms/master/protocol/openid-connect/token" \
         | jq -r '.access_token'
+        # keycloak 18 don't use /auth anymore
 )
 
 function post() {
@@ -24,6 +25,7 @@ function post() {
         -H "Content-Type: application/json" \
         -d "${2}" \
         "${KEYCLOAK_URL}/auth/admin${1}"
+        # keycloak 18 don't use /auth anymore
 }
 
 function put() {
@@ -33,6 +35,7 @@ function put() {
         -H "Content-Type: application/json" \
         -d "${2}" \
         "${KEYCLOAK_URL}/auth/admin${1}"
+        # keycloak 18 don't use /auth anymore
 }
 
 function get() {
@@ -40,6 +43,7 @@ function get() {
         -H "Authorization: bearer ${accessToken}" \
         -H "Content-Type: application/json" \
         "${KEYCLOAK_URL}/auth/admin${1}"
+# keycloak 18 don't use /auth anymore
 }
 
 terraformClient=$(jq -n "{

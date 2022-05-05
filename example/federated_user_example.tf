@@ -50,6 +50,7 @@ resource "keycloak_realm" "destination_realm" {
 resource keycloak_oidc_identity_provider source_oidc_idp {
   realm              = keycloak_realm.destination_realm.id
   alias              = "source"
+  # keycloak 18 don't use /auth anymore
   authorization_url  = "http://localhost:8080/auth/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/auth"
   token_url          = "http://localhost:8080/auth/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/token"
   user_info_url      = "http://localhost:8080/auth/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/userinfo"
@@ -64,6 +65,7 @@ resource keycloak_oidc_identity_provider source_oidc_idp {
 resource keycloak_oidc_identity_provider second_source_oidc_idp {
   realm              = keycloak_realm.destination_realm.id
   alias              = "source2"
+  # keycloak 18 don't use /auth anymore
   authorization_url  = "http://localhost:8080/auth/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/auth"
   token_url          = "http://localhost:8080/auth/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/token"
   user_info_url      = "http://localhost:8080/auth/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/userinfo"

@@ -9,8 +9,8 @@ import (
 func TestLocationHeaderParseForClient(t *testing.T) {
 	expectedRealm := "terraform-" + acctest.RandString(10)
 	expectedId := "aed9f702-c0d3-42cd-91b6-a894da769324"
+    // keycloak 18 don't use /auth anymore
 	locationHeader := fmt.Sprintf("http://localhost:8080/auth/admin/realms/%s/clients/%s", expectedRealm, expectedId)
-
 	actualId := getIdFromLocationHeader(locationHeader)
 
 	if expectedId != actualId {
@@ -21,6 +21,7 @@ func TestLocationHeaderParseForClient(t *testing.T) {
 func TestLocationHeaderParseForComponent(t *testing.T) {
 	expectedRealm := "terraform-" + acctest.RandString(10)
 	expectedId := "cca9f52a-2659-4cae-996d-bb788cd1d167"
+	// keycloak 18 don't use /auth anymore
 	locationHeader := fmt.Sprintf("http://localhost:8080/auth/admin/realms/%s/components/%s", expectedRealm, expectedId)
 
 	actualId := getIdFromLocationHeader(locationHeader)

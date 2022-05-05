@@ -24,6 +24,7 @@ resource "keycloak_realm" "token-exchange_destination_realm" {
 resource keycloak_oidc_identity_provider token-exchange_source_oidc_idp {
   realm              = keycloak_realm.token-exchange_destination_realm.id
   alias              = "source"
+  # keycloak 18 don't use /auth anymore
   authorization_url  = "http://localhost:8080/auth/realms/${keycloak_realm.token-exchange_source_realm.id}/protocol/openid-connect/auth"
   token_url          = "http://localhost:8080/auth/realms/${keycloak_realm.token-exchange_source_realm.id}/protocol/openid-connect/token"
   user_info_url      = "http://localhost:8080/auth/realms/${keycloak_realm.token-exchange_source_realm.id}/protocol/openid-connect/userinfo"

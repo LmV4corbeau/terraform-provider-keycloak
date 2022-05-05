@@ -141,7 +141,7 @@ func KeycloakProvider(client *keycloak.KeycloakClient) *schema.Provider {
 			"url": {
 				Type:        schema.TypeString,
 				Required:    true,
-				Description: "The base URL of the Keycloak instance, before `/auth`",
+				Description: "The base URL of the Keycloak instancebefore `/auth`", // keycloak 18 don't use /auth anymore
 				DefaultFunc: schema.EnvDefaultFunc("KEYCLOAK_URL", nil),
 			},
 			"initial_login": {
@@ -171,7 +171,7 @@ func KeycloakProvider(client *keycloak.KeycloakClient) *schema.Provider {
 			"base_path": {
 				Optional: true,
 				Type:     schema.TypeString,
-				Default:  "/auth",
+				Default:  "/auth", // keycloak 18 don't use /auth anymore
 			},
 			"additional_headers": {
 				Optional: true,
