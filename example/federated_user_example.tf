@@ -51,10 +51,10 @@ resource keycloak_oidc_identity_provider source_oidc_idp {
   realm              = keycloak_realm.destination_realm.id
   alias              = "source"
   # keycloak 18 don't use /auth anymore
-  authorization_url  = "http://localhost:8080/auth/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/auth"
-  token_url          = "http://localhost:8080/auth/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/token"
-  user_info_url      = "http://localhost:8080/auth/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/userinfo"
-  jwks_url           = "http://localhost:8080/auth/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/certs"
+  authorization_url  = "http://localhost:8080/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/auth"
+  token_url          = "http://localhost:8080/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/token"
+  user_info_url      = "http://localhost:8080/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/userinfo"
+  jwks_url           = "http://localhost:8080/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/certs"
   validate_signature = true
   client_id          = keycloak_openid_client.destination_client.client_id
   client_secret      = keycloak_openid_client.destination_client.client_secret
@@ -66,10 +66,10 @@ resource keycloak_oidc_identity_provider second_source_oidc_idp {
   realm              = keycloak_realm.destination_realm.id
   alias              = "source2"
   # keycloak 18 don't use /auth anymore
-  authorization_url  = "http://localhost:8080/auth/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/auth"
-  token_url          = "http://localhost:8080/auth/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/token"
-  user_info_url      = "http://localhost:8080/auth/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/userinfo"
-  jwks_url           = "http://localhost:8080/auth/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/certs"
+  authorization_url  = "http://localhost:8080/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/auth"
+  token_url          = "http://localhost:8080/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/token"
+  user_info_url      = "http://localhost:8080/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/userinfo"
+  jwks_url           = "http://localhost:8080/realms/${keycloak_realm.source_realm.id}/protocol/openid-connect/certs"
   validate_signature = true
   client_id          = keycloak_openid_client.destination_double_client.client_id
   client_secret      = keycloak_openid_client.destination_double_client.client_secret

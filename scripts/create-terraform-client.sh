@@ -14,7 +14,7 @@ accessToken=$(
         -d "password=${KEYCLOAK_PASSWORD}" \
         -d "client_id=admin-cli" \
         -d "grant_type=password" \
-        "${KEYCLOAK_URL}/auth/realms/master/protocol/openid-connect/token" \
+        "${KEYCLOAK_URL}/realms/master/protocol/openid-connect/token" \
         | jq -r '.access_token'
         # keycloak 18 don't use /auth anymore
 )
@@ -24,7 +24,7 @@ function post() {
         -H "Authorization: bearer ${accessToken}" \
         -H "Content-Type: application/json" \
         -d "${2}" \
-        "${KEYCLOAK_URL}/auth/admin${1}"
+        "${KEYCLOAK_URL}/admin${1}"
         # keycloak 18 don't use /auth anymore
 }
 
@@ -34,7 +34,7 @@ function put() {
         -H "Authorization: bearer ${accessToken}" \
         -H "Content-Type: application/json" \
         -d "${2}" \
-        "${KEYCLOAK_URL}/auth/admin${1}"
+        "${KEYCLOAK_URL}/admin${1}"
         # keycloak 18 don't use /auth anymore
 }
 
@@ -42,7 +42,7 @@ function get() {
     curl --fail --silent \
         -H "Authorization: bearer ${accessToken}" \
         -H "Content-Type: application/json" \
-        "${KEYCLOAK_URL}/auth/admin${1}"
+        "${KEYCLOAK_URL}/admin${1}"
 # keycloak 18 don't use /auth anymore
 }
 

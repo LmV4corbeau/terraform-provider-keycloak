@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # keycloak 18 don't use /auth anymore
-KEYCLOAK_URL="http://localhost:8080/auth/"
+KEYCLOAK_URL="http://localhost:8080/"
 
 printf "Waiting for local Keycloak to be ready"
 
